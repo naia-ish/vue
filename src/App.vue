@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Wonder Woman logo" class="logo" src="./assets/logo.png">
+  <SignUp mensaje="Wonder Woman"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import SignUp from "@/components/SignUp.vue";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SignUp
   }
 }
 </script>
@@ -22,5 +21,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.logo {
+  width: 500px;
 }
 </style>
