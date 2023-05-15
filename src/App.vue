@@ -1,6 +1,6 @@
 <template>
   <img alt="Wonder Woman logo" class="logo" src="./assets/logo.png">
-  <router-view mensaje="Sign up please" mensajeLogin="U'r logged in"/>
+  <router-view/>
 </template>
 
 <script>
