@@ -1,23 +1,17 @@
 <template>
   <Header/>
-  <h1>Hey {{name}}, Welcome to WW Home</h1>
+  <h1>WW Update Item</h1>
 </template>
 
 <script>
   import Header from "@/components/Header.vue";
   export default {
-    name: 'MyHome',
-    data() {
-      return {
-        name: ''
-      }
-    },
+    name: 'UpdateItem',
     components:{
       Header
     },
     mounted() { //to avoid loading this page if a user is logged
       let user = localStorage.getItem('user-info');
-      this.name = JSON.parse(user)[0].name;
 
       if (!user) {
         //redirect
