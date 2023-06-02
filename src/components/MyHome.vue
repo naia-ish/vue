@@ -1,27 +1,32 @@
 <template>
   <Header/>
   <h1>Hey {{name}}, Welcome to WW Home</h1>
-  <table class="table table-striped table-dark">
-    <tr>
-      <td class="col">Superhero</td>
-      <td>Publisher</td>
-      <td>Alter Ego</td>
-      <td>First appearance</td>
-      <td>Characters</td>
-    </tr>
-    <tr v-for="item in heroes" v-bind:key="item.id">
-      <td>{{ item.superhero }}</td>
-      <td>{{ item.publisher }}</td>
-      <td>{{ item.alter_ego }}</td>
-      <td>{{ item.first_appearance }}</td>
-      <td>{{ item.characters }}</td>
-    </tr>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <td class="col">Superheroe</td>
+        <td class="col">Publisher</td>
+        <td class="col">Alter Ego</td>
+<!--        <td class="col">First Appearance</td>-->
+        <td class="col">Characters</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="item in heroes" v-bind:key="item.id">
+        <td class="col">{{ item.superhero }}</td>
+        <td class="col">{{ item.publisher }}</td>
+        <td class="col">{{ item.alter_ego }}</td>
+<!--        <td class="col">{{ item.first_appearance }}</td>-->
+        <td class="col">{{ item.characters }}</td>
+      </tr>
+    </tbody>
   </table>
 </template>
 
 <script>
   import Header from "@/components/Header.vue";
   import axios from "axios";
+  import '../assets/css/myhome.css';
   export default {
     name: 'MyHome',
     data() {
@@ -35,7 +40,9 @@
     },
     async mounted() { //to avoid loading this page if a user is logged
       let user = localStorage.getItem('user-info');
-      this.name = JSON.parse(user)[0].name;
+      let name = JSON.parse(user)[0].name.slice(1);
+      let capital = JSON.parse(user)[0].name[0].toUpperCase();
+      this.name = capital + name;
 
       if (!user) {
         //redirect

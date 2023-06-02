@@ -1,0 +1,6 @@
+table thead {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkred !important;
+    background-color: #1D6EFD;
+}
