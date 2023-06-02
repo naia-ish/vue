@@ -1,9 +1,9 @@
 <template>
   <Header/>
   <h1>Hey {{name}}, Welcome to WW Home</h1>
-  <table>
+  <table class="table table-striped table-dark">
     <tr>
-      <td>Superhero</td>
+      <td class="col">Superhero</td>
       <td>Publisher</td>
       <td>Alter Ego</td>
       <td>First appearance</td>
