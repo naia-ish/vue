@@ -34,7 +34,7 @@ body {
 .logo {
   width: 500px;
 }
-.register input, .login input{
+.register input, .login input, .add input{
   width: 500px;
   height: 40px;
   padding-left: 20px;
@@ -45,7 +45,7 @@ body {
   border: 1px solid blue;
   color: red;
 }
-.register button, .login button{
+.register button, .login button, .add button{
   width: 500px;
   height: 40px;
   border: 1px solid red;
