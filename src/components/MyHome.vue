@@ -21,6 +21,7 @@
         <td class="col">{{ item.characters }}</td>
         <td class="col">
           <router-link :to="'/update/' + item.id"><font-awesome-icon icon="fa-solid fa-pen-to-square" size="xl"/></router-link>
+          <a v-on:click="deleteHero(item.id)"><font-awesome-icon icon="fa-solid fa-trash-can" size="xl"/></a>
         </td>
       </tr>
     </tbody>
@@ -42,19 +43,33 @@
     components:{
       Header
     },
-    async mounted() { //to avoid loading this page if a user is logged
-      let user = localStorage.getItem('user-info');
-      let name = JSON.parse(user)[0].name.slice(1);
-      let capital = JSON.parse(user)[0].name[0].toUpperCase();
-      this.name = capital + name;
+    methods: {
+      async deleteHero(id) {
+        let result = await axios.delete("http://localhost:3000/heroes/" + id);
 
-      if (!user) {
-        //redirect
-        this.$router.push({name: 'SignUp'});
+        if (result.status === 200) {
+          this.loadData();
+        }
+      },
+      async loadData() {
+
+        //to avoid loading this page if a user is logged
+        let user = localStorage.getItem('user-info');
+        let name = JSON.parse(user)[0].name.slice(1);
+        let capital = JSON.parse(user)[0].name[0].toUpperCase();
+        this.name = capital + name;
+
+        if (!user) {
+          //redirect
+          this.$router.push({name: 'SignUp'});
+        }
+        let result = await axios.get("http://localhost:3000/heroes");
+        this.heroes = result.data;
+
       }
-      let result = await axios.get("http://localhost:3000/heroes");
-      this.heroes = result.data;
-
+    },
+    async mounted() {
+      this.loadData();
     }
   }
 </script>
@@ -63,5 +78,9 @@
   td {
     width: 160px;
     height: 40px;
+  }
+
+  .fa-solid{
+    color: red;
   }
 </style>
