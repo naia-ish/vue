@@ -9,7 +9,7 @@
         <td class="col">Alter Ego</td>
 <!--        <td class="col">First Appearance</td>-->
         <td class="col">Characters</td>
-        <td></td>
+        <td class="col">Actions</td>
       </tr>
     </thead>
     <tbody>
@@ -20,7 +20,7 @@
 <!--        <td class="col">{{ item.first_appearance }}</td>-->
         <td class="col">{{ item.characters }}</td>
         <td class="col">
-          <router-link to="/update"><font-awesome-icon icon="fa-solid fa-pen-to-square" /></router-link>
+          <router-link :to="'/update/' + item.id"><font-awesome-icon icon="fa-solid fa-pen-to-square" size="xl"/></router-link>
         </td>
       </tr>
     </tbody>
