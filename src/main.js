@@ -9,13 +9,13 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* import specific icons */
-import { faPenToSquare, faTrashCan} from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan, faRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js';
 
 /* add icons to the library */
-library.add(faPenToSquare,faTrashCan)
+library.add(faPenToSquare,faTrashCan,faRightFromBracket)
 
 createApp(App)
     .use(router, bootstrap)

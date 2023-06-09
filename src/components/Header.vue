@@ -2,7 +2,7 @@
   <div class="nav">
     <router-link to="/">Home</router-link>
     <router-link to="/add" >Add Restaurant</router-link>
-    <router-link to="" v-on:click="logout">Logout</router-link>
+    <a v-on:click="logout"><font-awesome-icon icon="fa-solid fa-right-from-bracket" /></a>
   </div>
 </template>
 
@@ -35,7 +35,15 @@
     margin-right: 5px;
   }
 
+  .fa-right-from-bracket{
+    color: blue;
+  }
+
   .nav a:hover {
+    background-color: gold;
+  }
+
+  .nav .pages-active-link {
     background-color: gold;
   }
 </style>
